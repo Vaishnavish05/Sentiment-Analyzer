@@ -8,6 +8,9 @@ from nltk.stem import WordNetLemmatizer
 import re
 import string
 import nltk
+import requests
+import io
+
 
 # Required NLTK downloads
 nltk.download('punkt')
@@ -54,13 +57,13 @@ def preprocess_text(text):
 # ---------------------
 #  Load Model
 # ---------------------
+
 @st.cache_resource
 def load_model():
-    with open('model/sentiment_analysis_model.pkl', 'rb') as file:
-        model = pickle.load(file)
+    url = "https://your_link_here/model.pkl"
+    response = requests.get(url)
+    model = pickle.load(io.BytesIO(response.content))
     return model
-
-model = load_model()
 
 # ---------------------
 #  UI
