@@ -82,10 +82,11 @@ model = load_model()
 # UI
 # ---------------------
 st.markdown("<h1 style='text-align: center; color: #6C63FF;'>Sentiment Analyzer</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; font-size:18px;'>Drop your thoughts below, and I’ll decode the <b>mood</b> 💭📊</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size:18px;'>What’s on your mind? Let the model do the mood math 💡</p>", unsafe_allow_html=True)
 st.markdown("---")
 
-user_input = st.text_area("📝 What's on your mind today?", height=150)
+user_input = st.text_area("💬 Start typing here:", height=150)
+
 
 if st.button("🔍 Analyze Sentiment"):
     if user_input.strip() == "":
