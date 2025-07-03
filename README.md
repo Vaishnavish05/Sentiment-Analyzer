@@ -3,10 +3,13 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-orange)](https://streamlit.io/)
 [![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)]()
 [![GitHub repo size](https://img.shields.io/github/repo-size/Vaishnavish05/Sentiment-Analyzer)](https://github.com/Vaishnavish05/Sentiment-Analyzer)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([https://sentiment-analyzer-vaishnavish05.streamlit.app](https://sentiment-analyzer-nu3ynugamjk5yt5gadukcy.streamlit.app/))
 
 ---
 A machine learning-based sentiment analysis system designed to classify text into **positive**, **neutral**, or **negative** categories. This project implements classical NLP preprocessing, model training, and evaluation, and is capable of batch prediction and real-time sentiment inference.
 
+## 🚀 Try it out now  
+👉 [Click here to open the app] (https://sentiment-analyzer-nu3ynugamjk5yt5gadukcy.streamlit.app/)
 ---
 
 ## 📌 Project Overview
