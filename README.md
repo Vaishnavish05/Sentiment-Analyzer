@@ -106,5 +106,6 @@ Here’s a quick look at the user interface of the deployed app:
 
 ## 📬 Contact
 Developed by [Vaishnavi Sharma](mailto:navi.vsh05@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/vaishnavi-sharma05) 
 
 > ⚙️ This project was built by adapting and extending publicly available resources for educational purposes. Credits to the open-source community for foundational ideas and datasets.
