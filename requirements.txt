@@ -5,7 +5,4 @@ nltk
 matplotlib
 seaborn
 streamlit
-*.csv
-*.zip
-data/*
 
