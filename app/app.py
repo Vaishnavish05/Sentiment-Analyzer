@@ -63,7 +63,23 @@ def load_model():
     if response.status_code != 200:
         st.error("Failed to load model from Google Drive.")
         return None
-    model = pickle.load(io.BytesIO(response.content))
+    # ---------------------
+@st.cache_resource
+def load_model():
+    file_id = "1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E"  # 🔁 Replace this with your actual file ID
+    url = f"https://drive.google.com/uc?export=download&id={file_id}"
+    response = requests.get(url)
+    if response.status_code != 200:
+        st.error("Failed to load model from Google Drive.")
+        return None
+    try:
+        model = pickle.load(io.BytesIO(response.content))
+    except Exception as e:
+        st.error(f"Error loading model: {e}")
+    return None
+
+model = load_model()
+
     return model
 
 model = load_model()
