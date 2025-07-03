@@ -7,11 +7,13 @@ from nltk.stem import WordNetLemmatizer
 import re
 import string
 import nltk
+import os
+nltk_path = os.path.join(os.path.dirname(__file__), "..", "nltk_data")
 
 # ---------------------
 # NLTK Setup
-# ---------------------
-nltk.data.path.append("nltk_data")  # Point to local nltk_data folder
+nltk.data.path.append(nltk_path)
+
 
 # ---------------------
 # Page Setup
