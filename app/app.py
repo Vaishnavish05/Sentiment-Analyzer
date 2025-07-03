@@ -58,23 +58,19 @@ def preprocess_text(text):
 
 @st.cache_resource
 def load_model():
-    file_id = "1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E"  # 🔁 Replace this with your actual file ID
+    file_id = "1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E"  # 🔁 Your Drive file ID
     url = f"https://drive.google.com/uc?export=download&id={file_id}"
     response = requests.get(url)
     if response.status_code != 200:
-        st.error("Failed to load model from Google Drive.")
+        st.error("❌ Failed to load model from Google Drive.")
         return None
     try:
         model = pickle.load(io.BytesIO(response.content))
+        return model  # ✅ Return only if model loads correctly
     except Exception as e:
-        st.error(f"Error loading model: {e}")
-    return None
+        st.error(f"❌ Error loading model: {e}")
+        return None   # ✅ Return None only if there's an error
 
-model = load_model()
-
-    return model
-
-model = load_model()
 
 # ---------------------
 # UI
