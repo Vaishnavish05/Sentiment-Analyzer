@@ -1,7 +1,29 @@
+# Python bytecode and cache
 __pycache__/
 *.pyc
+
+# macOS junk
 .DS_Store
-.env
+
+# Jupyter junk
 *.ipynb_checkpoints
-"data/training.1600000.processed.noemoticon.csv" 
-"data/*.csv" 
+
+# Environment variables
+.env
+
+# Data files
+data/training.1600000.processed.noemoticon.csv
+data/*.csv
+
+# NLTK downloaded resources
+nltk_data/
+
+# Model files (especially big ones)
+model/*.pkl
+*.pkl
+
+# VS Code settings (optional but common)
+.vscode/
+
+# Streamlit logs
+.streamlit/
