@@ -1,18 +1,19 @@
 import streamlit as st
 import pickle
-import os
-import re
-import string
-import nltk
+import requests
+import io
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+import re
+import string
+import nltk
 
-# ---------------------
-# Fix: Set absolute path to nltk_data for Streamlit Cloud
-# ---------------------
-nltk_data_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'nltk_data'))
-nltk.data.path.append(nltk_data_path)
+# Set NLTK download path to local folder (for Streamlit Cloud)
+nltk.data.path.append("nltk_data")
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
 
 # ---------------------
 # Page Setup
@@ -52,13 +53,17 @@ def preprocess_text(text):
     return ' '.join(tokens)
 
 # ---------------------
-# Load Model
+# Load Model from Google Drive
 # ---------------------
 @st.cache_resource
 def load_model():
-    model_path = os.path.join(os.path.dirname(__file__), '..', 'model', 'sentiment_analysis_model.pkl')
-    with open(model_path, 'rb') as file:
-        model = pickle.load(file)
+    file_id = "1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E"  # 🔁 Replace this with your actual file ID
+    url = f"https://drive.google.com/uc?export=download&id={file_id}"
+    response = requests.get(url)
+    if response.status_code != 200:
+        st.error("Failed to load model from Google Drive.")
+        return None
+    model = pickle.load(io.BytesIO(response.content))
     return model
 
 model = load_model()
@@ -75,6 +80,8 @@ user_input = st.text_area("📝 What's on your mind today?", height=150)
 if st.button("🔍 Analyze Sentiment"):
     if user_input.strip() == "":
         st.warning("Text can't be empty!")
+    elif model is None:
+        st.error("⚠️ Model couldn't be loaded.")
     else:
         processed_text = preprocess_text(user_input)
         prediction = model.predict([processed_text])[0]
