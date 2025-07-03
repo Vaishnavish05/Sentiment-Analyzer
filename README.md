@@ -54,6 +54,23 @@ The final deployed model—**Random Forest with TF-IDF**—achieved a validation
 - Batch prediction support
 
 ---
+## 🚀 Getting Started
+
+1. **Clone the repository**
+
+git clone https://github.com/Vaishnavish05/Sentiment-Analyzer.git
+cd Sentiment-Analyzer
+2. **Install dependencies**
+
+pip install -r requirements.txt
+3. **Run sentiment analysis**
+
+python src/sentiment_analysis.py
+4. **Launch the Streamlit app**
+
+streamlit run app/app.py
+
+
 
 ## 🏆 Model Performance
 
@@ -75,18 +92,19 @@ Here’s a quick look at the user interface of the deployed app:
 
 ![streamlit snapshot](data/streamlit_snapshot.png)
 
-🌱 Future Scope
-📦 Integrate Git LFS for handling large datasets
+---
 
-🌐 Deploy backend with FastAPI or Flask for scalable APIs
+## 🌱 Future Scope
 
-🎯 Enhance preprocessing with custom text augmentation
-
-🤖 Integrate BERT or transformers for improved semantic understanding
-
-📊 Add interactive visualizations using Plotly or Altair in Streamlit
-
-🧪 Extend support to multilingual sentiment analysis
+- **Git LFS Integration** – Handle large CSVs without GitHub push errors
+- **FastAPI/Flask Backend** – Enable scalable RESTful API deployment
+- **Advanced NLP** – Incorporate BERT or Transformer-based models
+- **Text Augmentation** – Improve robustness with synthetic variations
+- **Multilingual Support** – Expand sentiment analysis to other languages
+---
 
 
+## 📬 Contact
+Developed by [Vaishnavi Sharma](mailto:navi.vsh05@gmail.com)
 
+> ⚙️ This project was built by adapting and extending publicly available resources for educational purposes. Credits to the open-source community for foundational ideas and datasets.
