@@ -40,15 +40,15 @@ def clean_text(text):
     text = re.sub(r'\d+', '', text)
     text = re.sub(r'\s+', ' ', text).strip()
     return text
-
 def preprocess_text(text):
     text = clean_text(text)
-    tokens = word_tokenize(text)
+    tokens = text.split()  # Avoids punkt dependency
     stop_words = set(stopwords.words('english'))
     tokens = [t for t in tokens if t not in stop_words]
     lemmatizer = WordNetLemmatizer()
     tokens = [lemmatizer.lemmatize(t) for t in tokens]
     return ' '.join(tokens)
+
 
 # ---------------------
 # Load Model using gdown (Google Drive)
