@@ -1,21 +1,17 @@
 import streamlit as st
 import pickle
-import requests
-import io
+import gdown
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import re
 import string
 import nltk
-import gdown  # ⬅️ NEW
-# Set NLTK download path to local folder (for Streamlit Cloud)
-nltk.data.path.append("nltk_data")
-nltk.download('punkt', download_dir="nltk_data")
-nltk.download('punkt_tab', download_dir="nltk_data")  # ADD THIS LINE!
-nltk.download('stopwords', download_dir="nltk_data")
-nltk.download('wordnet', download_dir="nltk_data")
 
+# ---------------------
+# NLTK Setup
+# ---------------------
+nltk.data.path.append("nltk_data")  # Point to local nltk_data folder
 
 # ---------------------
 # Page Setup
@@ -55,25 +51,22 @@ def preprocess_text(text):
     return ' '.join(tokens)
 
 # ---------------------
-# Load Model from Google Drive
+# Load Model using gdown (Google Drive)
 # ---------------------
-
-
 @st.cache_resource
 def load_model():
     file_id = "1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E"
     url = f"https://drive.google.com/uc?id={file_id}"
-
     output = "sentiment_analysis_model.pkl"
     try:
-        gdown.download(url, output, quiet=False)
+        gdown.download(url, output, quiet=True)
         with open(output, 'rb') as f:
             model = pickle.load(f)
-        st.success("✅ Model loaded successfully!")
         return model
     except Exception as e:
         st.error(f"❌ Error loading model: {e}")
         return None
+
 model = load_model()
 
 # ---------------------
