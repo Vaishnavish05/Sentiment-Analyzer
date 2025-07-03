@@ -2,7 +2,6 @@ __pycache__/
 *.pyc
 .DS_Store
 .env
-*.pkl
 *.ipynb_checkpoints
 "data/training.1600000.processed.noemoticon.csv" 
 "data/*.csv" 

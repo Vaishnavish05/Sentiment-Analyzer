@@ -8,17 +8,6 @@ from nltk.stem import WordNetLemmatizer
 import re
 import string
 import nltk
-import nltk
-import os
-import nltk
-
-nltk.download('punkt', download_dir='nltk_data')
-nltk.download('stopwords', download_dir='nltk_data')
-nltk.download('wordnet', download_dir='nltk_data')
-
-# Add custom nltk_data path
-nltk_data_path = os.path.join(os.path.dirname(__file__), '..', 'nltk_data')
-nltk.data.path.append('C:/Users/user/Downloads/Sentiment-Analyzer/nltk_data')
 
 # Required NLTK downloads
 nltk.download('punkt')
@@ -65,13 +54,13 @@ def preprocess_text(text):
 # ---------------------
 #  Load Model
 # ---------------------
+
 @st.cache_resource
 def load_model():
-    with open('sentiment_analysis_model.pkl', 'rb') as file:
-        model = pickle.load(file)
+    url = "https://drive.google.com/file/d/1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E/view?usp=sharing"
+    response = requests.get(url)
+    model = pickle.load(io.BytesIO(response.content))
     return model
-
-model = load_model()
 
 # ---------------------
 #  UI
