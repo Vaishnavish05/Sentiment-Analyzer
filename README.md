@@ -1,9 +1,10 @@
 # Sentiment Analyzer 
 [![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-orange)](https://streamlit.io/)
-[![License](https://img.shields.io/github/license/Vaishnavish05/Sentiment-Analyzer)](./LICENSE)
 [![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)]()
 [![GitHub repo size](https://img.shields.io/github/repo-size/Vaishnavish05/Sentiment-Analyzer)](https://github.com/Vaishnavish05/Sentiment-Analyzer)
+
+---
 A machine learning-based sentiment analysis system designed to classify text into **positive**, **neutral**, or **negative** categories. This project implements classical NLP preprocessing, model training, and evaluation, and is capable of batch prediction and real-time sentiment inference.
 
 ---
