@@ -1,35 +1,35 @@
-# app.py
-
 import streamlit as st
 import pickle
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
+import os
 import re
 import string
 import nltk
-
-# Required NLTK downloads
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
 # ---------------------
-#  Page Setup
+# Fix: Set absolute path to nltk_data for Streamlit Cloud
+# ---------------------
+nltk_data_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'nltk_data'))
+nltk.data.path.append(nltk_data_path)
+
+# ---------------------
+# Page Setup
 # ---------------------
 st.set_page_config(page_title="Sentiment Analyzer", page_icon="💬")
 
 # ---------------------
-#  Sidebar
+# Sidebar
 # ---------------------
 with st.sidebar:
     st.image("https://img.icons8.com/fluency/96/chat.png", width=80)
     st.markdown("### 👩‍💻 Built by Vaishnavi Sharma")
     st.markdown("[GitHub](https://github.com/Vaishnavish05) | [LinkedIn](https://www.linkedin.com/in/vaishnavish05/)")
-    st.write("A Streamlit-powered sentiment analysis app using traditional ML models. Predicts sentiment as Positive, Negative, or Neutral. ")
+    st.write("A Streamlit-powered sentiment analysis app using traditional ML models. Predicts sentiment as Positive, Negative, or Neutral.")
 
 # ---------------------
-#  Text Preprocessing
+# Text Preprocessing
 # ---------------------
 def clean_text(text):
     text = text.lower()
@@ -52,18 +52,19 @@ def preprocess_text(text):
     return ' '.join(tokens)
 
 # ---------------------
-#  Load Model
+# Load Model
 # ---------------------
-
 @st.cache_resource
 def load_model():
-    url = "https://drive.google.com/file/d/1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E/view?usp=sharing"
-    response = requests.get(url)
-    model = pickle.load(io.BytesIO(response.content))
+    model_path = os.path.join(os.path.dirname(__file__), '..', 'model', 'sentiment_analysis_model.pkl')
+    with open(model_path, 'rb') as file:
+        model = pickle.load(file)
     return model
 
+model = load_model()
+
 # ---------------------
-#  UI
+# UI
 # ---------------------
 st.markdown("<h1 style='text-align: center; color: #6C63FF;'>Sentiment Analyzer</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; font-size:18px;'>Drop your thoughts below, and I’ll decode the <b>mood</b> 💭📊</p>", unsafe_allow_html=True)
@@ -81,8 +82,5 @@ if st.button("🔍 Analyze Sentiment"):
         sentiment = sentiment_map.get(prediction, "Unknown")
         st.success(f"Predicted Sentiment: **{sentiment}**")
 
-        #  Show preprocessed text
         with st.expander("🔍 Show preprocessed text"):
             st.code(processed_text)
-
-     
