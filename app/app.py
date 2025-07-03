@@ -11,9 +11,11 @@ import nltk
 import gdown  # ⬅️ NEW
 # Set NLTK download path to local folder (for Streamlit Cloud)
 nltk.data.path.append("nltk_data")
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
+nltk.download('punkt', download_dir="nltk_data")
+nltk.download('punkt_tab', download_dir="nltk_data")  # ADD THIS LINE!
+nltk.download('stopwords', download_dir="nltk_data")
+nltk.download('wordnet', download_dir="nltk_data")
+
 
 # ---------------------
 # Page Setup
