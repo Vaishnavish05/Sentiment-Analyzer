@@ -72,7 +72,7 @@ The final deployed model—**Random Forest with TF-IDF**—achieved a validation
 
 Here’s a quick look at the user interface of the deployed app:
 
-![streamlit snapshot](data/streamlit snapshot.png)
+![streamlit snapshot](data/streamlit_snapshot.png)
 
 🌱 Future Scope
 📦 Integrate Git LFS for handling large datasets
