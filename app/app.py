@@ -8,7 +8,7 @@ from nltk.stem import WordNetLemmatizer
 import re
 import string
 import nltk
-
+import gdown  # ⬅️ NEW
 # Set NLTK download path to local folder (for Streamlit Cloud)
 nltk.data.path.append("nltk_data")
 nltk.download('punkt')
@@ -55,29 +55,24 @@ def preprocess_text(text):
 # ---------------------
 # Load Model from Google Drive
 # ---------------------
+
+
 @st.cache_resource
 def load_model():
     file_id = "1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E"
-    url = f"https://drive.google.com/uc?export=download&id={file_id}"
-    
-    st.write(f"📦 Fetching model from: {url}")  # DEBUG LINE
-    
-    response = requests.get(url)
-    st.write(f"📶 Status Code: {response.status_code}")  # DEBUG LINE
+    url = f"https://drive.google.com/uc?id={file_id}"
 
-    if response.status_code != 200:
-        st.error("❌ Failed to load model from Google Drive.")
-        return None
-
+    output = "sentiment_analysis_model.pkl"
     try:
-        model = pickle.load(io.BytesIO(response.content))
-        st.success("✅ Model loaded successfully!")  # DEBUG LINE
+        gdown.download(url, output, quiet=False)
+        with open(output, 'rb') as f:
+            model = pickle.load(f)
+        st.success("✅ Model loaded successfully!")
         return model
     except Exception as e:
         st.error(f"❌ Error loading model: {e}")
         return None
 
-model = load_model()
 # ---------------------
 # UI
 # ---------------------
