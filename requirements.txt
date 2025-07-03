@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+nltk
+matplotlib
+seaborn
+streamlit
+*.csv
+*.zip
+data/*
+
