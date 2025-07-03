@@ -55,15 +55,7 @@ def preprocess_text(text):
 # ---------------------
 # Load Model from Google Drive
 # ---------------------
-@st.cache_resource
-def load_model():
-    file_id = "1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E"  # 🔁 Replace this with your actual file ID
-    url = f"https://drive.google.com/uc?export=download&id={file_id}"
-    response = requests.get(url)
-    if response.status_code != 200:
-        st.error("Failed to load model from Google Drive.")
-        return None
-    # ---------------------
+
 @st.cache_resource
 def load_model():
     file_id = "1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E"  # 🔁 Replace this with your actual file ID
