@@ -56,7 +56,7 @@ def preprocess_text(text):
 # ---------------------
 @st.cache_resource
 def load_model():
-    with open('sentiment_analysis_model.pkl', 'rb') as file:
+    with open('model/sentiment_analysis_model.pkl', 'rb') as file:
         model = pickle.load(file)
     return model
 
