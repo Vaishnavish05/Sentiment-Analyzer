@@ -72,6 +72,7 @@ def load_model():
     except Exception as e:
         st.error(f"❌ Error loading model: {e}")
         return None
+model = load_model()
 
 # ---------------------
 # UI
