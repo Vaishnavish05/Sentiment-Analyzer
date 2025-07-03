@@ -5,12 +5,23 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/Vaishnavish05/Sentiment-Analyzer)](https://github.com/Vaishnavish05/Sentiment-Analyzer)
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sentiment-analyzer-nu3ynugamjk5yt5gadukcy.streamlit.app/)
 
+## 📚 Table of Contents
 
+- [🚀 Try it out now](#-try-it-out-now)
+- [📌 Project Overview](#-project-overview)
+- [🧾 Dataset](#-dataset)
+- [🛠 Features](#-features)
+- [🚀 Getting Started](#-getting-started)
+- [📦 Tech Stack](#-tech-stack)
+- [🏆 Model Performance](#-model-performance)
+- [📈 Evaluation Snapshot](#-evaluation-snapshot)
+- [🌱 Future Enhancements](#-future-enhancements)
+- [📬 Contact](#-contact)
 ---
 A machine learning-based sentiment analysis system designed to classify text into **positive**, **neutral**, or **negative** categories. This project implements classical NLP preprocessing, model training, and evaluation, and is capable of batch prediction and real-time sentiment inference.
 
 ## 🚀 Try it out now  
-👉 [Click here to open the app] (https://sentiment-analyzer-nu3ynugamjk5yt5gadukcy.streamlit.app/)
+👉 [Click here to open the app](https://sentiment-analyzer-nu3ynugamjk5yt5gadukcy.streamlit.app/)
 ---
 
 ## 📌 Project Overview
@@ -107,18 +118,26 @@ streamlit run app/app.py
 
 Here’s a quick look at the user interface of the deployed app:
 
-![streamlit snapshot](data/streamlit_snapshot.png)
+![streamlit snapshot](data/streamlit_ui_snapshot.png)
 
 ---
 
-## 🌱 Future Scope
+## 🌱 Future Enhancements
 
-- **Git LFS Integration** – Handle large CSVs without GitHub push errors
-- **FastAPI/Flask Backend** – Enable scalable RESTful API deployment
-- **Advanced NLP** – Incorporate BERT or Transformer-based models
-- **Text Augmentation** – Improve robustness with synthetic variations
-- **Multilingual Support** – Expand sentiment analysis to other languages
----
+- **Git LFS Integration**  
+  Enable seamless handling of large files such as datasets and trained models, ensuring efficient version control and repository management.
+
+- **RESTful API Deployment (FastAPI / Flask)**  
+  Expand accessibility by serving the model through a scalable backend API, supporting integration with third-party applications or client-side interfaces.
+
+- **Advanced NLP Techniques**  
+  Explore transformer-based architectures (e.g., BERT, RoBERTa) to enhance model accuracy and capture deeper contextual sentiment.
+
+- **Text Augmentation Strategies**  
+  Improve model generalization by introducing data augmentation methods such as synonym replacement, back translation, and random insertion.
+
+- **Multilingual Sentiment Analysis**  
+  Extend support to additional languages to make the solution more inclusive and applicable to a global user base.
 
 
 ## 📬 Contact
