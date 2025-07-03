@@ -1,15 +1,25 @@
 # Sentiment Analyzer 
-
+[![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-orange)](https://streamlit.io/)
+[![License](https://img.shields.io/github/license/Vaishnavish05/Sentiment-Analyzer)](./LICENSE)
+[![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)]()
+[![GitHub repo size](https://img.shields.io/github/repo-size/Vaishnavish05/Sentiment-Analyzer)](https://github.com/Vaishnavish05/Sentiment-Analyzer)
 A machine learning-based sentiment analysis system designed to classify text into **positive**, **neutral**, or **negative** categories. This project implements classical NLP preprocessing, model training, and evaluation, and is capable of batch prediction and real-time sentiment inference.
-
-## 📌 Project Overview
-
-This sentiment analysis pipeline is built to process raw text, clean and normalize it using NLTK, extract features using TF-IDF and CountVectorizer, and classify the sentiment using multiple supervised learning models.
-
-The final deployed model—**Random Forest with TF-IDF**—achieved a validation accuracy of **~70.37%**, demonstrating reliable performance on multi-class sentiment prediction.
 
 ---
 
+## 📌 Project Overview
+
+This sentiment analysis pipeline is built to:
+
+- Process raw text
+- Clean and normalize it using **NLTK**
+- Extract features using **TF-IDF** and **CountVectorizer**
+- Classify sentiments using classical **supervised learning** models
+
+The final deployed model—**Random Forest with TF-IDF**—achieved a validation accuracy of **70.37%**, demonstrating reliable performance on multi-class sentiment prediction.
+
+---
 ## 🧾 Dataset
 
 - **Training samples:** 27,481 rows
@@ -57,4 +67,25 @@ The final deployed model—**Random Forest with TF-IDF**—achieved a validation
 
 ## 📈 Evaluation Snapshot
 ![snapshot](data/snapshot.png)
+
+🔍 Streamlit App Preview
+
+Here’s a quick look at the user interface of the deployed app:
+
+![streamlit snapshot](data/streamlit snapshot.png)
+
+🌱 Future Scope
+📦 Integrate Git LFS for handling large datasets
+
+🌐 Deploy backend with FastAPI or Flask for scalable APIs
+
+🎯 Enhance preprocessing with custom text augmentation
+
+🤖 Integrate BERT or transformers for improved semantic understanding
+
+📊 Add interactive visualizations using Plotly or Altair in Streamlit
+
+🧪 Extend support to multilingual sentiment analysis
+
+
 
