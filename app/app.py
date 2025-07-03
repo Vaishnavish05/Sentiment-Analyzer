@@ -10,6 +10,17 @@ import string
 import nltk
 import requests
 import io
+import os
+import nltk
+
+# Set up NLTK download path
+nltk_data_path = os.path.join(os.path.dirname(__file__), 'nltk_data')
+nltk.data.path.append(nltk_data_path)
+
+# Download required resources to this local path
+nltk.download('punkt', download_dir=nltk_data_path)
+nltk.download('stopwords', download_dir=nltk_data_path)
+nltk.download('wordnet', download_dir=nltk_data_path)
 
 
 # Required NLTK downloads
