@@ -8,12 +8,19 @@ import re
 import string
 import nltk
 import os
-nltk_path = os.path.join(os.path.dirname(__file__), "..", "nltk_data")
 
 # ---------------------
 # NLTK Setup
+# ---------------------
+nltk_path = os.path.join(os.path.dirname(__file__), "..", "nltk_data")
 nltk.data.path.append(nltk_path)
 
+# Auto-download required NLTK corpora at runtime (safe for deploy)
+try:
+    nltk.download("stopwords", download_dir=nltk_path)
+    nltk.download("wordnet", download_dir=nltk_path)
+except:
+    st.warning("⚠️ Could not download NLTK resources. Check internet connection.")
 
 # ---------------------
 # Page Setup
@@ -42,15 +49,15 @@ def clean_text(text):
     text = re.sub(r'\d+', '', text)
     text = re.sub(r'\s+', ' ', text).strip()
     return text
+
 def preprocess_text(text):
     text = clean_text(text)
-    tokens = text.split()  # Avoids punkt dependency
+    tokens = text.split()  # no punkt dependency
     stop_words = set(stopwords.words('english'))
     tokens = [t for t in tokens if t not in stop_words]
     lemmatizer = WordNetLemmatizer()
     tokens = [lemmatizer.lemmatize(t) for t in tokens]
     return ' '.join(tokens)
-
 
 # ---------------------
 # Load Model using gdown (Google Drive)
