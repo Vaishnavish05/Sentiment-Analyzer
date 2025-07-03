@@ -56,4 +56,5 @@ The final deployed model—**Random Forest with TF-IDF**—achieved a validation
 ---
 
 ## 📈 Evaluation Snapshot
+![snapshot](data/snapshot.png)
 
