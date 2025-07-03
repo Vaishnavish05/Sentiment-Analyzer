@@ -60,7 +60,7 @@ def preprocess_text(text):
 
 @st.cache_resource
 def load_model():
-    url = "https://your_link_here/model.pkl"
+    url = "https://drive.google.com/file/d/1Ck6GXEidnnw0jEmzXbCB4YEqKkTOf44E/view?usp=sharing"
     response = requests.get(url)
     model = pickle.load(io.BytesIO(response.content))
     return model
