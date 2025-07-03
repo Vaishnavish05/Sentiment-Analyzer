@@ -59,21 +59,27 @@ The final deployed model—**Random Forest with TF-IDF**—achieved a validation
 
 ---
 
-
 ## 🚀 Getting Started
 
 ### 🧲 1. Clone the repository
 
+```bash
 git clone https://github.com/Vaishnavish05/Sentiment-Analyzer.git
 cd Sentiment-Analyzer
 📦 2. Install dependencies
-
+bash
+Copy
+Edit
 pip install -r requirements.txt
 🧪 3. (Optional) Train the model
-
+bash
+Copy
+Edit
 python src/sentiment_analysis.py
 🌐 4. Launch the Streamlit app
-
+bash
+Copy
+Edit
 streamlit run app/app.py
 
 
